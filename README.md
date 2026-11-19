@@ -54,6 +54,8 @@ python bot.py
 
 5. In your server, run `/setup-server`, then `/setup-permissions`, then `/setup-verification`.
 
+Run the tests with `pip install pytest && python -m pytest`. They check the role, channel and verification tables against each other and against Discord's limits, and need no token or network.
+
 > ⚠️ Never commit your `.env` file. Your bot token gives full control of the bot.
 
 ## 🛠️ Customizing
