@@ -773,35 +773,11 @@ class ServiceSelect(discord.ui.Select):
 
         options = [
             discord.SelectOption(
-                label="Boosting",
-                value="boosting",
-                emoji="🚀"
-            ),
-            discord.SelectOption(
-                label="Live Coaching",
-                value="coaching",
-                emoji="🎓"
-            ),
-            discord.SelectOption(
-                label="VOD Review",
-                value="vod",
-                emoji="🎥"
-            ),
-            discord.SelectOption(
-                label="Ranked Improvement",
-                value="improvement",
-                emoji="🧠"
-            ),
-            discord.SelectOption(
-                label="Community",
-                value="community",
-                emoji="🎮"
-            ),
-            discord.SelectOption(
-                label="Talk to Staff",
-                value="staff",
-                emoji="❓"
-            ),
+                label=name.split(" ", 1)[1],
+                value=key,
+                emoji=name.split(" ", 1)[0]
+            )
+            for key, name in SERVICE_OPTIONS.items()
         ]
 
         super().__init__(
@@ -1330,7 +1306,12 @@ async def setup_server_error(
 # START NEXUS
 # =========================================================
 
-if not TOKEN:
-    raise RuntimeError("DISCORD_TOKEN was not found in .env")
+def main():
+    if not TOKEN:
+        raise RuntimeError("DISCORD_TOKEN was not found in .env")
 
-bot.run(TOKEN)
+    bot.run(TOKEN)
+
+
+if __name__ == "__main__":
+    main()
